@@ -4,7 +4,7 @@ An AI phone assistant for web and iOS, built in Rust. Tell Courtside who to call
 
 Courtside brings call planning, live transcripts, private questions, and post-call summaries into one chat. You can listen in, join the conversation, or let the assistant continue.
 
-[Explore the interactive demo](https://courtside-assistant.jass-malak12.chatgpt.site/demo/) · [Web setup](web/README.md) · [iOS client](dioxus-client/README.md)
+[Web setup](web/README.md) · [iOS client](dioxus-client/README.md)
 
 ## What the app does
 
@@ -41,7 +41,7 @@ Phone <-> Twilio <-> Rust server <-> OpenAI Realtime
 - **[`server/`](server/)**: Axum and Tokio service that bridges Twilio Media Streams to OpenAI Realtime, manages call controls and private questions, and publishes live events. SeaORM and SQLite store accounts, chats, calls, transcripts, and usage.
 - **[`dioxus-client/`](dioxus-client/)**: shared Rust/Dioxus interface with platform-specific audio and native integrations. It has its own Cargo workspace and build scripts.
 - **[`shared/`](shared/)**: request/response types and the WebSocket event protocol used by both sides.
-- **[`web/`](web/)**: web distribution scripts and browser checks. The landing page lives at `/`, the authenticated app at `/app/`, and the illustrative demo at `/demo/`.
+- **[`web/`](web/)**: web distribution scripts and browser checks. The landing page lives at `/` and the authenticated app at `/app/`.
 
 The client communicates with the server over HTTP and WebSockets; provider credentials stay on the server. Live audio uses the Realtime API, with separate model configuration for chat, call planning, and summaries.
 
@@ -93,7 +93,7 @@ Browser and audio checks are documented in [web/README.md](web/README.md). Live 
 
 ## Development notes
 
-- The linked demo uses sample interactions and does not place calls. Running the real app requires a configured backend and incurs provider charges.
+- Running the app requires a configured backend and incurs provider charges.
 - Outbound calls currently support valid US/Canada `+1` numbers and require verified caller ID. The backend enforces account entitlements, minute allowances, and one active call per account.
 - The code includes free-trial usage tracking and StoreKit subscription support with dedicated inbound numbers. Apple billing, notifications, and device attestation require your own configuration.
 - Incoming iOS invitations currently require the app to be open. Reliable background ringing needs PushKit/APNs setup and push-enabled signing.
