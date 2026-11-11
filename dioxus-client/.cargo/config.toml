@@ -1,0 +1,4 @@
+[env]
+# Keep Rust's linker, Swift audio code, and bundled native dependencies on the
+# same deployment target. Rust otherwise defaults to iOS 10 for this target.
+IPHONEOS_DEPLOYMENT_TARGET = "15.0"

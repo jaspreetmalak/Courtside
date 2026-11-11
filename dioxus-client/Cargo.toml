@@ -1,0 +1,45 @@
+[package]
+name = "courtside-mobile"
+version = "0.1.0"
+authors = ["jaspreetmalak"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dioxus = { version = "0.7.1" }
+shared = { path = "../shared" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+async-channel = "2"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+ureq = { version = "2", features = ["json"] }
+tungstenite = { version = "0.28", features = ["native-tls"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+uuid = { version = "1", features = ["v4", "serde", "js"] }
+web-sys = { version = "0.3", features = ["Window", "Location", "Storage"] }
+
+[target.'cfg(target_os = "ios")'.dependencies]
+block = "0.1"
+objc = "0.2"
+
+[features]
+default = ["mobile"]
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]
+
+# Keep the replacement client fully self-contained instead of letting Cargo
+# absorb it into the legacy Courtside workspace above this directory.
+[workspace]
+resolver = "2"
+
+[patch.crates-io]
+# Dioxus 0.7.10 still pins tao 0.34, whose legacy UIApplicationDelegate
+# lifecycle is rejected by iOS 27 at launch. Keep the Dioxus renderer intact,
+# but build it against tao's scene-aware runtime.
+dioxus-desktop = { path = "vendor/dioxus-desktop" }

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#557DFF" stop-opacity=".18"/>
+      <stop offset=".72" stop-color="#557DFF" stop-opacity=".04"/>
+      <stop offset="1" stop-color="#557DFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1=".12" y1=".16" x2=".86" y2=".84">
+      <stop stop-color="#8DA7FF" stop-opacity=".92"/>
+      <stop offset=".52" stop-color="#557DFF" stop-opacity=".62"/>
+      <stop offset="1" stop-color="#A18BFF" stop-opacity=".88"/>
+    </linearGradient>
+  </defs>
+  <circle cx="120" cy="120" r="104" fill="url(#glow)"/>
+  <g fill="none" stroke="url(#line)" stroke-linecap="round">
+    <path stroke-width="1.45" opacity=".96" d="M120 27C168 27 211 65 213 113C215 163 174 209 125 213C77 217 31 179 27 131C23 82 61 35 109 28C113 27 117 27 120 27Z"/>
+    <path stroke-width="1.3" opacity=".88" d="M120 34C165 34 204 69 206 114C208 160 171 201 126 206C81 211 39 175 34 130C29 84 65 42 110 35C113 34 117 34 120 34Z"/>
+    <path stroke-width="1.2" opacity=".80" d="M120 42C161 42 197 73 198 115C200 157 168 194 126 198C85 203 47 171 42 129C37 88 69 50 111 43C114 42 117 42 120 42Z"/>
+    <path stroke-width="1.1" opacity=".71" d="M120 50C158 50 189 78 190 116C191 154 164 186 126 190C88 195 54 166 50 128C46 91 73 57 111 51C114 50 117 50 120 50Z"/>
+    <path stroke-width="1" opacity=".62" d="M120 58C154 58 181 82 182 117C183 151 160 178 125 182C91 186 62 161 58 127C54 93 78 64 112 59C115 58 117 58 120 58Z"/>
+    <path stroke-width=".95" opacity=".53" d="M120 66C150 66 173 87 174 117C175 147 156 171 125 174C95 178 69 156 66 126C63 96 83 71 113 67C115 66 118 66 120 66Z"/>
+    <path stroke-width=".9" opacity=".44" d="M120 74C146 74 165 91 166 118C167 144 152 163 125 166C99 169 77 151 74 125C72 99 88 79 114 75C116 74 118 74 120 74Z"/>
+  </g>
+</svg>
